@@ -1,9 +1,7 @@
+# Base image for Python
 FROM python:3.10-slim
 
-WORKDIR /app
-
-COPY . /app
-
+# Instalar dependencias necesarias para SQL Server
 RUN apt-get update && apt-get install -y \
     unixodbc-dev \
     curl \
@@ -15,12 +13,20 @@ RUN apt-get update && apt-get install -y \
     mssql-tools && \
     apt-get clean
 
-ENV PATH="${PATH}:/opt/mssql-tools/bin"
+# Agregar herramientas al PATH
+ENV PATH="/opt/mssql-tools/bin:$PATH"
 
-RUN pip install --upgrade pip
 
-RUN pip install -r requirements.txt --no-cache-dir
+# Set the working directory
+WORKDIR /app
 
-EXPOSE 8080
+# Install dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
+# Copy app code
+COPY . .
+
+# Expose port and run
+EXPOSE 8000
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

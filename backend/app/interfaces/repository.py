@@ -26,7 +26,7 @@ class MinerRespository(MinerRepositoryPort):
         query = select(miners)
         results = await database.fetch_all(query)
         return [Miner(**result) for result in results]
-
+    
 
     async def update_miner(self, miner: Miner) -> None:
         query = update(miners).where(miners.c.id == miner.id).values(

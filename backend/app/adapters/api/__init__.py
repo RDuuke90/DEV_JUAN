@@ -1,1 +1,1 @@
-from app.adapters.api import api_router
+from app.adapters.api.router import api_router

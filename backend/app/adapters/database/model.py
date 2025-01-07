@@ -1,7 +1,6 @@
 import uuid
 from sqlalchemy import Table, Column, String
 from app.config.database import metadata
-
 miners = Table(
     "miners",
     metadata,
@@ -11,3 +10,4 @@ miners = Table(
     Column("id_number", String(100), unique=True, nullable=False),
     Column("municipality", String(100), nullable=False),
 )
+
