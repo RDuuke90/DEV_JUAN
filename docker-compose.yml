@@ -4,22 +4,20 @@ services:
     build:
       context: ./backend
     ports:
-      - "5000:5000"
+      - "8080:8080"
     environment:
-      - DATABASE_HOST=db
-      - DATABASE_USER=sa
-      - DATABASE_PASSWORD=RDuuke@1990duqe
-      - DATABASE_NAME=MinerosDB
+      - DATABASE_URL=postgresql+asyncpg://postgres:yourpassword@db/minerosdb
     depends_on:
       - db
 
   db:
-    image: mcr.microsoft.com/mssql/server:2019-latest
-    ports:
-      - "1433:1433"
+    image: postgres:15
     environment:
-      ACCEPT_EULA: "Y"
-      SA_PASSWORD: "RDuuke@1990duqe"
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: yourpassword
+      POSTGRES_DB: minerosdb
+    ports:
+      - "5432:5432"
 
   frontend:
     build:
