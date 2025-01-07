@@ -30,6 +30,6 @@ const MinersList: React.FC = () => {
       </ul>
     </div>
   );
-}
+};
 
 export default MinersList;

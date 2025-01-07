@@ -4,4 +4,5 @@ export interface Miner {
     id_type: string;
     id_number: string;
     municipality: string;
-}
+  }
+  

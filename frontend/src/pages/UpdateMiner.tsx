@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getMiner, updateMiner } from '../services/minerService';
+import { getMinerById, updateMiner } from '../services/minerService';
 import { Miner } from '../interfaces/Miner';
 
 const UpdateMiner: React.FC = () => {
@@ -14,7 +14,7 @@ const UpdateMiner: React.FC = () => {
     const fetchMiner = async () => {
       if (id) {
         try {
-          const minerData = await getMiner(id);
+          const minerData = await getMinerById(id);
           setMiner(minerData);
         } catch (error) {
           console.error('Error fetching miner:', error);
@@ -33,7 +33,7 @@ const UpdateMiner: React.FC = () => {
     e.preventDefault();
     try {
       if (id) {
-        await updateMiner({ ...miner, id: id as string } as Miner);
+        await updateMiner(id, miner);
         alert('Minero actualizado exitosamente');
       }
     } catch (error) {

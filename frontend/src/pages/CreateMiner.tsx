@@ -17,8 +17,7 @@ const CreateMiner: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const minerWithId: Miner = { ...miner, id: 'temp-id' }; 
-      await createMiner(minerWithId);
+      await createMiner(miner);
       alert('Minero creado exitosamente');
     } catch (error) {
       console.error('Error creando minero:', error);
