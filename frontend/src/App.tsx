@@ -1,19 +1,12 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import MinersList from './pages/MinersList';
-import CreateMiner from './pages/CreateMiner';
-import UpdateMiner from './pages/UpdateMiner';
+import * as React from "react";
+import MinersPage from "./pages/MinersPage.tsx";
 
-const App: React.FC = () => {
+const App: React.FC = ()  =>{
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<MinersList />} />
-        <Route path="/create" element={<CreateMiner />} />
-        <Route path="/update/:id" element={<UpdateMiner />} />
-      </Routes>
-    </Router>
-  );
-};
+    <div>
+        <MinersPage />
+    </div>
+  )
+}
 
-export default App;
+export default App

@@ -1,8 +1,15 @@
 from fastapi import FastAPI
-from app.config import lifespan
-from app.adapters.api.router import api_router
+from fastapi.middleware.cors import CORSMiddleware
+from backend.src.entrypoints.rest_api.router import router
 
-app = FastAPI(lifespan=lifespan)
+app = FastAPI()
 
-app.include_router(router=api_router, prefix="/api/v1", tags=["Miners"])
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+app.include_router(router=router, prefix="/api/v1")
 

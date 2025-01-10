@@ -1,1 +1,0 @@
-from app.adapters.api.router import api_router
