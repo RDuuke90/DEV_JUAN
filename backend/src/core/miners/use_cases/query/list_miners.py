@@ -1,7 +1,7 @@
 from typing import List
 
-from backend.src.core.miners.domain.entities.miner import Miner
-from backend.src.core.miners.domain.interfaces.miner_query_repository import MinerQueryRepository
+from src.core.miners.domain.entities.miner import Miner
+from src.core.miners.domain.interfaces.miner_query_repository import MinerQueryRepository
 
 
 class ListMinersQuery:

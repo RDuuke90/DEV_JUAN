@@ -1,5 +1,5 @@
-from backend.src.application.miners.dtos.miner_response_dto import MinerResponseDTO
-from backend.src.core.miners.domain.entities.miner import Miner
+from src.application.miners.dtos.miner_response_dto import MinerResponseDTO
+from src.core.miners.domain.entities.miner import Miner
 
 
 class MinerMapper:

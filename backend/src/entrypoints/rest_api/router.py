@@ -2,8 +2,8 @@ from typing import List
 
 from fastapi import APIRouter
 
-from backend.src.application.miners.dtos.miner_response_dto import MinerResponseDTO
-from backend.src.entrypoints.rest_api.miner_controller import MinerController
+from src.application.miners.dtos.miner_response_dto import MinerResponseDTO
+from src.entrypoints.rest_api.miner_controller import MinerController
 
 router = APIRouter()
 
