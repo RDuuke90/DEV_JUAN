@@ -4,7 +4,7 @@ from typing import List
 from backend.src.core.miners.domain.entities.miner import Miner
 
 
-class MinerRepository(ABC):
+class MinerQueryRepository(ABC):
 
     @abstractmethod
     async def get_all(self) -> List[Miner]:

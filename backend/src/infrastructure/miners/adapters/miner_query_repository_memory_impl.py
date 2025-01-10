@@ -2,10 +2,10 @@ from typing import List
 from uuid import uuid4
 
 from backend.src.core.miners.domain.entities.miner import Miner
-from backend.src.core.miners.domain.interfaces.miner_repository import MinerRepository
+from backend.src.core.miners.domain.interfaces.miner_query_repository import MinerQueryRepository
 
 
-class MinerRepositoryMemoryImplement(MinerRepository):
+class MinerQueryRepositoryMemoryImplement(MinerQueryRepository):
 
     def __init__(self):
         self.miners: List[Miner] = [
