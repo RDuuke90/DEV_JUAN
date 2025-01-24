@@ -23,6 +23,17 @@ class Miner:
             municipality=data.get("municipality"),
         )
 
+    @classmethod
+    def from_dict(cls, data: dict) -> "Miner":
+        return cls(
+            uuid=data.get("uuid"),
+            name=data.get("name"),
+            document_type=data.get("document_type"),
+            document_number=data.get("document_number"),
+            municipality=data.get("municipality"),
+            updated_at=data.get("updated_at", None),
+        )
+
     def to_dict(self) -> dict:
         return {
             "uuid": str(self.uuid),
