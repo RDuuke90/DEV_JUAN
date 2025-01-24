@@ -1,29 +1,15 @@
-from typing import List
-from uuid import uuid4
+from typing import List, Dict
 
 from src.core.miners.domain.entities.miner import Miner
 from src.core.miners.domain.interfaces.miner_query_repository import MinerQueryRepository
+from src.infrastructure.miners.persistence.models.miner import MinerModel
 
 
 class MinerQueryRepositoryMemoryImplement(MinerQueryRepository):
 
     def __init__(self):
-        self.miners: List[Miner] = [
-            Miner(
-                uuid=uuid4(),
-                name="Juan Perez",
-                document_type="CC",
-                document_number="123456789",
-                municipality="Medellin"
-            ),
-            Miner(
-                uuid=uuid4(),
-                name="Ana Gomez",
-                document_type="CC",
-                document_number="987654321",
-                municipality="Bogota"
-            )
-        ]
+        self.model = MinerModel()
 
     async def get_all(self) -> List[Miner]:
-        return self.miners
+        miners:List[Dict] = await self.model.all().values()
+        return [Miner.from_dict(miner) for miner in miners]
