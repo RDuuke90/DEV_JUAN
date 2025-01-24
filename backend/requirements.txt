@@ -1,8 +1,8 @@
 fastapi[all]
 python-multipart
 uvicorn[standard]
-sqlalchemy
-databases[odbc]
 pyodbc
 pydantic
 python-decouple
+tortoise-orm
+aiosqlite

@@ -1,0 +1,11 @@
+# Excluir el entorno virtual
+.venv
+
+# Excluir archivos y carpetas cacheadas
+__pycache__/
+*.pyc
+*.pyo
+
+# Excluir configuraciones locales de IDEs
+.vscode/
+.idea/
