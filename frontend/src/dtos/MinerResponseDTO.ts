@@ -1,4 +1,4 @@
-export interface MinerResponseDTO {
+export interface MinerDTO {
     uuid: string;
     name: string;
     document_type: string;

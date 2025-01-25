@@ -1,8 +1,8 @@
-import { MinerResponseDTO } from "../../dtos/MinerResponseDTO";
+import { MinerDTO } from "../../dtos/MinerResponseDTO";
 import apiClient from "../apiClient"
 
 
-export const fetchMiners = async (): Promise<MinerResponseDTO[]> => {
-    const response = await apiClient.get<MinerResponseDTO[]>("/miners");
+export const fetchMiners = async (): Promise<MinerDTO[]> => {
+    const response = await apiClient.get<MinerDTO[]>("/miners");
     return response.data;
 }
